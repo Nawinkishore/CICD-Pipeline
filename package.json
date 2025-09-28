@@ -8,7 +8,9 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "react-scripts test --watchAll=false"
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ci": "vitest run --coverage"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.13",

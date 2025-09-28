@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import type { Task } from "./config/Task";
 import {
   getTasks,
@@ -18,22 +18,23 @@ const App: React.FC = () => {
     command: "",
     taskExecutions: [],
   });
-  const [loading, setLoading] = useState(false);
+  const [, setLoading] = useState(false);
   const [messageText, setMessageText] = useState<string | null>(null);
   const [messageType, setMessageType] = useState<"success" | "error">("success");
 
   // Fetch tasks
-  const fetchTasks = async () => {
+  const fetchTasks = useCallback(async () => {
     setLoading(true);
     try {
       const res = await getTasks();
       setTasks(res.data);
-    } catch (err: any) {
-      showMessage(err.response?.data || "Error fetching tasks", "error");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Error fetching tasks";
+      showMessage(errorMessage, "error");
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   // Show message
   const showMessage = (msg: string, type: "success" | "error") => {
@@ -53,8 +54,9 @@ const App: React.FC = () => {
       showMessage(`Task "${res.data.name}" created successfully`, "success");
       setNewTask({ id: "", name: "", owner: "", command: "", taskExecutions: [] });
       fetchTasks();
-    } catch (err: any) {
-      showMessage(err.response?.data || "Error creating task", "error");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Error creating task";
+      showMessage(errorMessage, "error");
     }
   };
 
@@ -64,8 +66,9 @@ const App: React.FC = () => {
       const res = await executeTask(id);
       showMessage(`Task executed: ${res.data.id}`, "success");
       fetchTasks();
-    } catch (err: any) {
-      showMessage(err.response?.data || "Error executing task", "error");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Error executing task";
+      showMessage(errorMessage, "error");
     }
   };
 
@@ -76,8 +79,9 @@ const App: React.FC = () => {
       await deleteTask(id);
       showMessage("Task deleted successfully", "success");
       fetchTasks();
-    } catch (err: any) {
-      showMessage(err.response?.data || "Error deleting task", "error");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Error deleting task";
+      showMessage(errorMessage, "error");
     }
   };
 
@@ -88,14 +92,15 @@ const App: React.FC = () => {
     try {
       const res = await searchTasks(searchTerm);
       setTasks(res.data);
-    } catch (err: any) {
-      showMessage(err.response?.data || "Error searching tasks", "error");
+    } catch (err: unknown) {
+      const errorMessage = err instanceof Error ? err.message : "Error searching tasks";
+      showMessage(errorMessage, "error");
     }
   };
 
   useEffect(() => {
     fetchTasks();
-  }, []);
+  }, [fetchTasks]);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 font-sans">
