@@ -1,47 +1,20 @@
-# Screenshots Directory
+# CI/CD Pipeline Screenshots
 
-This directory contains all the required screenshots for the CI/CD pipeline demonstration.
+This directory contains the demonstration screenshots for the CI/CD pipeline implementation.
 
-## Required Screenshots
+## Screenshots
 
-Please add the following 15 screenshots with your name and current date/time visible:
+### 1. Docker Development Environment (`docker.png`)
+Demonstrates successful Docker containerization and local development environment with the application running on http://localhost:5173.
 
-### A. Local Development Setup
-- `01-docker-dev-startup.png` - Docker development startup
-- `02-application-browser.png` - Application running in browser
-- `03-docker-containers.png` - Docker containers status
+### 2. GitHub Actions CI/CD Pipeline (`githubactions.png`)
+Shows the complete GitHub Actions workflow execution with automated testing, building, and Docker image publishing to GitHub Container Registry.
 
-### B. Code Quality and Testing
-- `04-test-coverage.png` - Test execution with coverage
-- `05-production-build.png` - Production build process
+## What These Screenshots Demonstrate
 
-### C. GitHub Repository Setup
-- `06-repository-structure.png` - Repository with CI/CD files
-- `07-git-push.png` - Git push to trigger pipeline
-
-### D. GitHub Actions Pipeline Execution
-- `08-github-actions-overview.png` - GitHub Actions workflow overview
-- `09-frontend-build-test.png` - Frontend build and test job
-- `10-docker-build-push.png` - Docker build and push job
-- `11-build-summary.png` - Build summary and artifacts
-
-### E. Container Registry
-- `12-github-packages.png` - GitHub Container Registry
-- `13-image-details.png` - Docker image details
-
-### F. Pipeline Success Verification
-- `14-pipeline-success.png` - Complete pipeline success
-- `15-repository-success.png` - Repository with CI/CD success
-
-## Instructions
-
-1. Take each screenshot following the detailed instructions in the main README.md
-2. Ensure your name and current date/time are visible in each screenshot
-3. Save with the exact filenames listed above
-4. Verify all images are clear and readable
-
-## File Format
-
-- Use PNG format for best quality
-- Ensure screenshots are high resolution
-- Include full browser/terminal windows when possible
+- ✅ **Docker Development Environment** - Successful containerization and local development
+- ✅ **GitHub Actions CI/CD Pipeline** - Automated testing, building, and deployment
+- ✅ **Container Registry Integration** - Docker images published to GitHub Container Registry
+- ✅ **Multi-platform Support** - AMD64/ARM64 architecture builds
+- ✅ **Automated Testing** - Test execution with coverage reporting
+- ✅ **Production Ready** - Complete CI/CD workflow from code to deployment

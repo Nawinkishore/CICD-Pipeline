@@ -116,7 +116,7 @@ npm run lint
 npm run build
 ```
 
-## � Environment Configuration
+## 🔧 Environment Configuration
 
 ### API Configuration
 Configure the backend API URL using environment variables:
@@ -148,234 +148,67 @@ docker-compose up --build frontend-dev
 # Access: http://localhost:5173
 ```
 
-## 📸 CI/CD Pipeline Screenshots Required
+## 📸 CI/CD Pipeline Demonstration Screenshots
 
-**IMPORTANT**: You must take the following screenshots to demonstrate your CI/CD pipeline implementation. Ensure your **name and current date/time** are visible in all screenshots.
+This section demonstrates the successful implementation and execution of the CI/CD pipeline with Docker containerization.
 
-### A. Local Development Setup
+### 1. Docker Development Environment
 
-#### A1. Docker Development Startup
-**Command:** `docker-compose up --build frontend-dev`
+![Docker Development](screenshots/docker.png)
+*Docker development environment showing successful container build and application running on http://localhost:5173 with hot reload functionality*
 
-![Docker Development Startup](screenshots/01-docker-dev-startup.png)
-*Screenshot showing Docker build process and successful container startup with name and timestamp visible*
+### 2. GitHub Actions CI/CD Pipeline
 
-#### A2. Application Running in Browser
-**URL:** http://localhost:5173
+![GitHub Actions Pipeline](screenshots/githubactions.png)
+*GitHub Actions workflow execution showing successful CI/CD pipeline with automated testing, building, and Docker image publishing to GitHub Container Registry*
 
-![Application Running](screenshots/02-application-browser.png)
-*Screenshot showing Task Management interface running in browser with name and timestamp visible*
+## 📋 Pipeline Demonstration Summary
 
-#### A3. Docker Containers Status
-**Command:** `docker ps`
+The screenshots demonstrate:
+- ✅ **Docker Development Environment** - Successful containerization and local development
+- ✅ **GitHub Actions CI/CD Pipeline** - Automated testing, building, and deployment
+- ✅ **Container Registry Integration** - Docker images published to GitHub Container Registry
+- ✅ **Multi-platform Support** - AMD64/ARM64 architecture builds
+- ✅ **Automated Testing** - Test execution with coverage reporting
+- ✅ **Production Ready** - Complete CI/CD workflow from code to deployment
 
-![Docker Containers Status](screenshots/03-docker-containers.png)
-*Screenshot showing running Docker containers with names, ports, and status*
+## 🎯 Quick Start Commands
 
-### B. Code Quality and Testing
-
-#### B4. Test Execution with Coverage
-**Command:** `npm run test:ci`
-
-![Test Coverage Results](screenshots/04-test-coverage.png)
-*Screenshot showing test execution with coverage report - all tests passing with coverage percentages*
-
-#### B5. Production Build Process
-**Command:** `npm run build`
-
-![Production Build](screenshots/05-production-build.png)
-*Screenshot showing successful production build with generated files and build completion*
-
-### C. GitHub Repository Setup
-
-#### C6. Repository with CI/CD Files
-**Location:** GitHub repository main page
-
-![Repository Structure](screenshots/06-repository-structure.png)
-*Screenshot showing GitHub repository with CI/CD files: .github/workflows/ci-cd.yml, Dockerfile, docker-compose.yml*
-
-#### C7. Git Push to Trigger Pipeline
-**Commands:**
+### Local Development
 ```bash
+# Start Docker development environment
+docker-compose up --build frontend-dev
+# Access: http://localhost:5173
+```
+
+### Testing and Building
+```bash
+# Run tests with coverage
+npm run test:ci
+
+# Build for production
+npm run build
+
+# Run linting
+npm run lint
+```
+
+### CI/CD Pipeline
+```bash
+# Trigger pipeline by pushing to GitHub
 git add .
 git commit -m "CI/CD Pipeline Implementation"
 git push origin main
 ```
 
-![Git Push Success](screenshots/07-git-push.png)
-*Screenshot showing successful git push to trigger CI/CD pipeline*
-
-### D. GitHub Actions Pipeline Execution
-
-#### D8. GitHub Actions Workflow Overview
-**Location:** GitHub Actions tab
-
-![GitHub Actions Overview](screenshots/08-github-actions-overview.png)
-*Screenshot showing GitHub Actions workflow run with workflow name, trigger event, and job status*
-
-#### D9. Frontend Build and Test Job Details
-**Job:** frontend-build-test
-
-![Frontend Build Test Job](screenshots/09-frontend-build-test.png)
-*Screenshot showing detailed view of frontend-build-test job with all steps completed successfully*
-
-#### D10. Docker Build and Push Job Details
-**Job:** docker-build-push
-
-![Docker Build Push Job](screenshots/10-docker-build-push.png)
-*Screenshot showing detailed view of docker-build-push job with Docker build steps and image push success*
-
-#### D11. Build Summary and Artifacts
-**Location:** Workflow summary page
-
-![Build Summary](screenshots/11-build-summary.png)
-*Screenshot showing workflow summary with job completion times and artifacts generated*
-
-### E. Container Registry
-
-#### E12. GitHub Container Registry
-**Location:** GitHub Packages tab
-
-![GitHub Container Registry](screenshots/12-github-packages.png)
-*Screenshot showing GitHub Packages tab with published Docker images, tags, and publication timestamps*
-
-#### E13. Docker Image Details
-**Location:** Specific image in GHCR
-
-![Docker Image Details](screenshots/13-image-details.png)
-*Screenshot showing specific image details with tags, platforms (AMD64/ARM64), and image size*
-
-### F. Pipeline Success Verification
-
-#### F14. Complete Pipeline Success
-**Location:** GitHub Actions workflow completion
-
-![Pipeline Success](screenshots/14-pipeline-success.png)
-*Screenshot showing GitHub Actions with all green checkmarks - both jobs completed successfully*
-
-#### F15. Repository with CI/CD Success
-**Location:** Repository main page
-
-![Repository Success](screenshots/15-repository-success.png)
-*Screenshot showing repository main page with successful CI/CD workflow status*
-
-## � Screenshot Organization
-
-All screenshots should be saved in the `screenshots/` directory with the following naming convention:
-
-```
-screenshots/
-├── 01-docker-dev-startup.png
-├── 02-application-browser.png
-├── 03-docker-containers.png
-├── 04-test-coverage.png
-├── 05-production-build.png
-├── 06-repository-structure.png
-├── 07-git-push.png
-├── 08-github-actions-overview.png
-├── 09-frontend-build-test.png
-├── 10-docker-build-push.png
-├── 11-build-summary.png
-├── 12-github-packages.png
-├── 13-image-details.png
-├── 14-pipeline-success.png
-└── 15-repository-success.png
-```
-
-## �📋 Screenshot Submission Checklist
-
-Before submitting, verify each screenshot includes:
-- [ ] Your full name clearly visible
-- [ ] Current date and time visible
-- [ ] Relevant terminal/browser content
-- [ ] Clear, readable text
-- [ ] Proper window/tab titles
-- [ ] No sensitive information exposed
-- [ ] Saved with correct filename in screenshots/ directory
-
-## 🎯 Demonstration Steps
-
-1. **Setup**: Ensure Docker and Node.js are installed
-2. **Local Testing**: Run the application locally and take screenshots A1-A3
-3. **Quality Checks**: Run tests and builds, take screenshots B4-B5
-4. **Repository**: Push code to GitHub, take screenshots C6-C7
-5. **Pipeline**: Wait for CI/CD completion, take screenshots D8-D11
-6. **Registry**: Verify images published, take screenshots E12-E13
-7. **Verification**: Confirm success, take screenshots F14-F15
-
 ## ✅ Success Criteria
 
 Your CI/CD pipeline demonstration is complete when:
-- ✅ All 15 screenshots are captured with name/timestamp
 - ✅ Local application runs successfully on port 5173
 - ✅ All tests pass with coverage reporting
 - ✅ GitHub Actions pipeline completes successfully
 - ✅ Docker images are published to GitHub Container Registry
 - ✅ Both frontend-build-test and docker-build-push jobs succeed
-
-**Good luck with your CI/CD pipeline demonstration!** 🚀
----
-
-## 🎯 **NEXT STEPS: Take Your Screenshots**
-
-### **Step 1: Start Your Application**
-```bash
-# Start Docker development environment
-docker-compose up --build frontend-dev
-```
-
-### **Step 2: Access Application**
-Open browser to: **http://localhost:5173**
-
-### **Step 3: Take Required Screenshots**
-Follow the screenshot checklist above (A1-F15)
-
-### **Step 4: Push to GitHub**
-```bash
-git add .
-git commit -m "CI/CD Pipeline Implementation"
-git push origin main
-```
-
-### **Step 5: Monitor CI/CD Pipeline**
-- Go to GitHub Actions tab
-- Wait for pipeline completion
-- Take screenshots of successful execution
-
-### **Step 6: Verify Container Registry**
-- Check GitHub Packages tab
-- Verify Docker images are published
-- Take final screenshots
-
-**Remember**: Your **name and current date/time** must be visible in ALL screenshots!
-
----
-
-## 📝 Instructions for Adding Screenshots
-
-### Step 1: Take Screenshots
-Follow the demonstration steps above and take all 15 required screenshots.
-
-### Step 2: Save Screenshots
-Save each screenshot in the `screenshots/` directory with the exact filenames shown above:
-- `01-docker-dev-startup.png`
-- `02-application-browser.png`
-- `03-docker-containers.png`
-- etc.
-
-### Step 3: Verify Screenshots
-- Ensure your name and current date/time are visible in each screenshot
-- Check that all images are clear and readable
-- Verify correct filenames and locations
-
-### Step 4: Commit Screenshots
-```bash
-git add screenshots/
-git commit -m "Add CI/CD pipeline demonstration screenshots"
-git push origin main
-```
-
-The README.md file will automatically display your screenshots once they are added to the screenshots/ directory.
 
 ---
 
